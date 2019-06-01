@@ -7,15 +7,29 @@ from de_dash.app import app
 
 
 layout = [
-    html.P("Esta é a página com as imagens"),
 
-    # Upload section
     html.Div([
-        html.Section([
-            dcc.Upload([
-                "Drag and Drop or ",
-                html.A("Select an Image")
-            ], style=utils.UP_STYLE, accept='images/*')
-        ], style=utils.UP_SEC_STYLE)
-    ], className="four columns"),
+
+        html.Div([
+            dcc.Dropdown(
+                id="model_dropdown", 
+                placeholder="FER Model",
+                options=[dict(label="xception-512-256", value="xception-512-256"),]
+            ),
+
+        ], className="five columns", style=utils.SEC_STYLE),
+    
+        # Image display
+        html.Div([
+            html.Div([
+                dcc.Graph(id="interactive-image", style=dict(height="70%")),
+            ]),
+
+            html.Button("DOWNLOAD IMAGE", type="submit", style=dict(width="100%", 
+                marginTop="5px", color="#ffffff", backgroundColor=utils.COLORS["header"])),
+
+        ], className="six columns", style=dict(float="right"),),
+
+    ], style=dict(margin="10px")),
+
 ]

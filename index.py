@@ -17,6 +17,14 @@ app.layout = html.Div([
         html.Div([
             html.Img(src="data:image/png;base64,{}".format(utils.IM_LOGO_0.decode()), height="100%"),
         ], style=dict(float="left", height="100%")),
+
+        html.Div([
+            html.Form([
+                html.Button("HOME", type="submit", style=dict(width="100%", height="40px",
+                    color="#ffffff", backgroundColor=utils.COLORS["header"], marginTop="15px")),
+            ], action="/home", method="post"),
+        ], style=dict(float="right"))
+    
     ], id="header", className="header"),
 
     # Page content
@@ -27,6 +35,14 @@ app.layout = html.Div([
     html.Link(href="https://fonts.googleapis.com/css?family=Ubuntu", rel="stylesheet"),
     html.Link(href="https://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet"),
 ])
+
+
+@app.server.route("/home", methods=["POST"])
+def route_to_home():
+    """Redirect page to "/images."""
+    rep = flask.redirect("/home")
+    rep.set_cookie("app_route", "/home")
+    return rep
 
 
 @app.server.route("/images", methods=["POST"])
@@ -51,7 +67,10 @@ def route_to_content(_):
     """Route to page layout based on app_route."""
     session_cookie = flask.request.cookies.get("app_route")
 
-    if session_cookie == "/images":
+    if session_cookie == "/home":
+        return home.layout
+        
+    elif session_cookie == "/images":
         return images_page.layout
 
     elif session_cookie == "/videos":
