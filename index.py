@@ -15,7 +15,7 @@ app.layout = html.Div([
     # Header
     html.Div([
         html.Div([
-            html.Img(src="data:image/png;base64,{}".format(utils.IM_LOGO_0.decode()), height="100%"),
+            html.Img(src="data:image/png;base64,{}".format(utils.DE_LOGO.decode()), height="100%"),
         ], style=dict(float="left", height="100%")),
 
         html.Div([
