@@ -1,9 +1,9 @@
 body{
     margin:0;
     padding: 0;
-    background-color: #e6e6e6;
+    background-color: #222222;
     font-family: 'Open Sans', sans-serif;
-    color: #506784;
+    color: #ffffff;
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
@@ -27,7 +27,7 @@ body{
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     width: 50%; /* Could be more or less, depending on screen size */
-    color:#506784;
+    color:#ffffff;
 }
 ._dash-undo-redo {
   display: none;
@@ -42,7 +42,7 @@ body{
 
 .header{
     margin:0px;
-    background-color:#6600cc;
+    background-color:#7B16E1;
     height:70px;
     color:white;
     padding-right:2%;
@@ -71,8 +71,8 @@ body{
 
 .add{
     height: 34px;
-    background: #119DFF;
-    border: 1px solid #119DFF;
+    background: #7B16E1;
+    border: 1px solid #7B16E1;
     color: white;
 }
 
@@ -90,8 +90,6 @@ body{
     font-size: 13px;
     text-align: center;   
 }
-
-
 
 
 td{
