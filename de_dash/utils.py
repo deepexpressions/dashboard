@@ -8,8 +8,8 @@ from PIL import Image
 ########################################### LOCAL IMAGES ###########################################
 
 
-DE_LOGO = base64.b64encode(open(r"de_dash/assets/images/logo0.png", "rb").read())
-GIT_LOGO = base64.b64encode(open(r"de_dash/assets/images/github0.png", "rb").read())
+DE_LOGO = base64.b64encode(open(r"de_dash/assets/images/logo1.png", "rb").read())
+# GIT_LOGO = base64.b64encode(open(r"de_dash/assets/images/github0.png", "rb").read())
 
 
 ############################################## COLORS ##############################################
@@ -21,7 +21,7 @@ COLORS = dict(
     lv2="#1761a0",    # de logo' - ...
     lv3="#4c96d7",    # de logo' - lighter blue
     bg="#222222",     # background color
-    header="#7B16E1", # header bar color
+    header="#3333ff", # header bar color
 )
 
 # PIL colors to draw bounding boxes
@@ -70,6 +70,9 @@ UP_STYLE = dict(width="100%", height="50px", lineHeight="50px", borderWidth="1px
 
 # Default style for buttons
 BUTTON_STYLE = dict(width="100%", marginTop="5px", color="#ffffff", backgroundColor=COLORS["header"])
+
+# Default style for color dropdown
+COLOR_DROP_STYLE = dict(marginLeft="-10px", fontSize=12, borderRadius=0, border="thin lightgrey solid")
 
 
 ######################################### DASH IMAGE UTILS #########################################
