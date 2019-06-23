@@ -9,7 +9,7 @@ from PIL import Image
 
 
 DE_LOGO = base64.b64encode(open(r"de_dash/assets/images/logo1.png", "rb").read())
-# GIT_LOGO = base64.b64encode(open(r"de_dash/assets/images/github0.png", "rb").read())
+IMAGE = base64.b64encode(open(r"de_dash/assets/images/default.jpg", "rb").read())
 
 
 ############################################## COLORS ##############################################
@@ -20,36 +20,9 @@ COLORS = dict(
     lv1="#083b66",    # de logo' - ...
     lv2="#1761a0",    # de logo' - ...
     lv3="#4c96d7",    # de logo' - lighter blue
-    bg="#222222",     # background color
-    header="#3333ff", # header bar color
+    bg="#E1E7E4",     # background color
+    header="#3385ff", # header bar color
 )
-
-# PIL colors to draw bounding boxes
-STANDARD_COLORS = [
-    "AliceBlue", "Chartreuse", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque",
-    "BlanchedAlmond", "BlueViolet", "BurlyWood", "CadetBlue", "AntiqueWhite",
-    "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan",
-    "DarkCyan", "DarkGoldenRod", "DarkGrey", "DarkKhaki", "DarkOrange",
-    "DarkOrchid", "DarkSalmon", "DarkSeaGreen", "DarkTurquoise", "DarkViolet",
-    "DeepPink", "DeepSkyBlue", "DodgerBlue", "FireBrick", "FloralWhite",
-    "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod",
-    "Salmon", "Tan", "HoneyDew", "HotPink", "IndianRed", "Ivory", "Khaki",
-    "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue",
-    "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey",
-    "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue",
-    "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime",
-    "LimeGreen", "Linen", "Magenta", "MediumAquaMarine", "MediumOrchid",
-    "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen",
-    "MediumTurquoise", "MediumVioletRed", "MintCream", "MistyRose", "Moccasin",
-    "NavajoWhite", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed",
-    "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed",
-    "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple",
-    "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Green", "SandyBrown",
-    "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue",
-    "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "GreenYellow",
-    "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White",
-    "WhiteSmoke", "Yellow", "YellowGreen"
-]
 
 
 ############################################## STYLES ##############################################
@@ -72,7 +45,8 @@ UP_STYLE = dict(width="100%", height="50px", lineHeight="50px", borderWidth="1px
 BUTTON_STYLE = dict(width="100%", marginTop="5px", color="#ffffff", backgroundColor=COLORS["header"])
 
 # Default style for color dropdown
-COLOR_DROP_STYLE = dict(marginLeft="-10px", fontSize=12, borderRadius=0, border="thin lightgrey solid")
+COLOR_DROP_STYLE = dict(width="100%", fontSize=12, borderRadius=0, border="thin lightgrey solid")
+COLOR_DROP_STYLE_DIV = dict(marginLeft="-10px", fontSize=12, borderRadius=0, border="thin lightgrey solid")
 
 
 ######################################### DASH IMAGE UTILS #########################################
