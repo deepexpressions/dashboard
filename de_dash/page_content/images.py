@@ -15,20 +15,42 @@ from .. import dash_reusable_components as drc
 layout = [
 
     html.Div([
-        
+      
         # Hiperparameters and colors settings
         html.Div([
-            html.Div( sections.hyperparameters, style=utils.SEC_STYLE),
-            html.Div(style=dict(height="7px")),
+            html.Div([
+                dcc.Upload(
+                    id='upload-data',
+                    children=html.Div([
+                        'Drag and Drop or ',
+                        html.A('Select Files')]),
+                    style=utils.UP_STYLE),  
+            ], style=utils.SEC_STYLE),
+
+            html.Div(sections.hyperparameters, style=utils.SEC_STYLE),
+            # html.Div(style=dict(height="7px")),
             html.Div(sections.colors, style=utils.SEC_STYLE),
         ], className="six columns"),
     
         # Image display
         html.Div([
             html.Div(dcc.Graph(id="image", style=dict(height="70%", marginTop="8px"))),
-            dcc.Upload(html.Button("UPLOAD IMAGE", type="submit", style=utils.BUTTON_STYLE),
-                id="upload_image"),
-            html.Button("DOWNLOAD IMAGE", type="submit", style=utils.BUTTON_STYLE),
+            html.Div([
+                # html.Div(html.P("-"), className="one columns", style=dict(color=utils.COLORS["bg"])),
+
+                html.Div([
+                    dcc.Upload(html.Button("UPLOAD IMAGE", type="submit", style=utils.BUTTON_STYLE), id="upload_image"),
+                ], className="four columns"),
+
+                html.Div(html.P("-"), className="four columns", style=dict(color=utils.COLORS["bg"])),
+                
+                html.Div([
+                    html.Button("DOWNLOAD IMAGE", type="submit", style=utils.BUTTON_STYLE),
+                ], className="four columns"),
+
+                # html.Div(html.P("-"), className="one columns", style=dict(color=utils.COLORS["bg"])),
+
+            ], className="row"),
         ], className="six columns", style=dict(float="right"),),
 
         # Empty div

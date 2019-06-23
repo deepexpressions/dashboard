@@ -8,7 +8,7 @@ from PIL import Image
 ########################################### LOCAL IMAGES ###########################################
 
 
-DE_LOGO = base64.b64encode(open(r"de_dash/assets/images/logo1.png", "rb").read())
+DE_LOGO = base64.b64encode(open(r"de_dash/assets/images/logo0.png", "rb").read())
 IMAGE = base64.b64encode(open(r"de_dash/assets/images/default.jpg", "rb").read())
 
 
@@ -21,7 +21,7 @@ COLORS = dict(
     lv2="#1761a0",    # de logo' - ...
     lv3="#4c96d7",    # de logo' - lighter blue
     bg="#E1E7E4",     # background color
-    header="#3385ff", # header bar color
+    header="#66a3ff", # header bar color
 )
 
 
@@ -35,18 +35,20 @@ BG_STYLE = dict(width="100%", height="100%", top="70px", left="0px", position="f
 
 # Default style for sections
 SEC_STYLE = dict(padding=20, margin=5, borderRadius=5, border="thin lightgrey solid",
-                 backgroundColor=COLORS["header"],)
+                 backgroundColor=COLORS["bg"], **{"box-shadow" : 
+                 "0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3)"})
 
 # Default style for upload component
 UP_STYLE = dict(width="100%", height="50px", lineHeight="50px", borderWidth="1px", 
                 borderStyle="dashed", borderRadius="5px", textAlign="center")
 
 # Default style for buttons
-BUTTON_STYLE = dict(width="100%", marginTop="5px", color="#ffffff", backgroundColor=COLORS["header"])
+BUTTON_STYLE = dict(width="100%", marginTop="5px", color="#ffffff", backgroundColor=COLORS["header"], **{"box-shadow" : 
+                 "0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3)"})
 
 # Default style for color dropdown
-COLOR_DROP_STYLE = dict(width="100%", fontSize=12, borderRadius=0, border="thin lightgrey solid")
-COLOR_DROP_STYLE_DIV = dict(marginLeft="-10px", fontSize=12, borderRadius=0, border="thin lightgrey solid")
+COLOR_DROP_STYLE = dict(width="100%", fontSize=12, borderRadius=0) #, border="#ff0000")
+COLOR_DROP_STYLE_DIV = dict(marginLeft="-10px", fontSize=12, borderRadius=0)#, border="thin lightgrey solid")
 
 
 ######################################### DASH IMAGE UTILS #########################################

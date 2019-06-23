@@ -8,7 +8,7 @@ from PIL.ImageColor import colormap
 
 
 hyperparameters = [
-    html.Div(dcc.Markdown("**HYPERPARAMETERS:**\n\n---"), style=dict(color="#ffffff")),
+    html.Div(dcc.Markdown("**__HYPERPARAMETERS:__**"), style=dict(color="#000000")),
     
     html.Div([
         dcc.Dropdown(
@@ -20,8 +20,8 @@ hyperparameters = [
 
         html.Div([
             html.Div([
-                dcc.Markdown("**FD confidence:**"),
-            ], className="three columns", style=dict(color="#ffffff")),
+                dcc.Markdown("FD confidence:"),
+            ], className="three columns", style=dict(color="#000000", hoverinfo='text')),
 
             html.Div([               
                 dcc.Slider(
@@ -30,23 +30,23 @@ hyperparameters = [
                     step=5, value=50,
                     updatemode="drag",
                     marks={i: dict(label=f'{i}%', style=dict(
-                        color="#ffffff")) for i in range(10, 91, 10)},
+                        color="#000000")) for i in range(10, 91, 10)},
                 ),
             ], className="nine columns"),
 
         ], className="row", style=dict(marginTop="10px", marginBottom="10px")),
-    ], style=dict(marginTop="-10px")) 
+    ]),#, style=dict(marginTop="-10px")) 
 ]
 
 
 colors = [
-    html.Div(dcc.Markdown("**BOUNDING BOXES COLORS:**\n\n---"), style=dict(color="#ffffff")),
+    html.Div(dcc.Markdown("**__BOUNDING BOXES COLORS:__**"), style=dict(color="#000000")),
 
     html.Div([
         html.Div([
             html.Div([
-                dcc.Markdown("* **Anger:**"),
-            ], className="two columns", style=dict(color="#ffffff", fontSize=12, **{'vertical-align': 'middle'})),
+                dcc.Markdown("* Anger:"),
+            ], className="two columns", style=dict(color="#000000", fontSize=12, **{'vertical-align': 'middle'})),
 
             html.Div([
                 html.Div(id="anger_color_bar", className="one columns"),
@@ -62,8 +62,8 @@ colors = [
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
 
             html.Div([
-                dcc.Markdown("* **Disgust:**"),
-            ], className="two columns", style=dict(color="#ffffff", fontSize=12, marginLeft="15px")),
+                dcc.Markdown("* Disgust:"),
+            ], className="two columns", style=dict(color="#000000", fontSize=12, marginLeft="15px")),
 
             html.Div([
                 html.Div(id="disgust_color_bar", className="one columns"),
@@ -80,8 +80,8 @@ colors = [
 
         html.Div([
             html.Div([
-                dcc.Markdown("* **Fear:**"),
-            ], className="two columns", style=dict(color="#ffffff", fontSize=12)),
+                dcc.Markdown("* Fear:"),
+            ], className="two columns", style=dict(color="#000000", fontSize=12)),
 
             html.Div([
                 html.Div(id="fear_color_bar", className="one columns"),
@@ -96,8 +96,8 @@ colors = [
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
 
             html.Div([
-                dcc.Markdown("* **Happiness:**"),
-            ], className="two columns", style=dict(color="#ffffff", fontSize=12, marginLeft="15px")),
+                dcc.Markdown("* Happiness:"),
+            ], className="two columns", style=dict(color="#000000", fontSize=12, marginLeft="15px")),
 
             html.Div([
                 html.Div(id="happiness_color_bar", className="one columns"),
@@ -114,8 +114,8 @@ colors = [
 
         html.Div([               
             html.Div([
-                dcc.Markdown("* **Neutral:**"),
-            ], className="two columns", style=dict(color="#ffffff", fontSize=12)),
+                dcc.Markdown("* Neutral:"),
+            ], className="two columns", style=dict(color="#000000", fontSize=12)),
 
             html.Div([
                 html.Div(id="neutral_color_bar", className="one columns"),
@@ -130,8 +130,8 @@ colors = [
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
 
             html.Div([               
-                dcc.Markdown("* **Sadness:**"),
-            ], className="two columns", style=dict(color="#ffffff", fontSize=12, marginLeft="15px")),
+                dcc.Markdown("* Sadness:"),
+            ], className="two columns", style=dict(color="#000000", fontSize=12, marginLeft="15px")),
 
             html.Div([
                 html.Div(id="sadness_color_bar", className="one columns"),
@@ -148,8 +148,8 @@ colors = [
 
         html.Div([
             html.Div([
-                dcc.Markdown("* **Surprise:**"),
-            ], className="two columns", style=dict(color="#ffffff", fontSize=12)),
+                dcc.Markdown("* Surprise:"),
+            ], className="two columns", style=dict(color="#000000", fontSize=12)),
 
             html.Div([
                 html.Div(id="surprise_color_bar", className="one columns"),
@@ -163,7 +163,7 @@ colors = [
                 ),
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
         ], className="row", style=dict(marginTop="10px")),
-    ], style=dict(marginTop="-10px")), 
+    ]),#, style=dict(marginTop="-10px")) 
 ]
 
 
