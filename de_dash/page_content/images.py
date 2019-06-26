@@ -7,6 +7,7 @@ import base64
 from matplotlib import pyplot as plt
 
 from .. import utils
+from .. import graphs
 from ..app import app
 from . import sections
 from .. import dash_reusable_components as drc
@@ -18,39 +19,17 @@ layout = [
       
         # Hiperparameters and colors settings
         html.Div([
-            html.Div([
-                dcc.Upload(
-                    id='upload-data',
-                    children=html.Div([
-                        'Drag and Drop or ',
-                        html.A('Select Files')]),
-                    style=utils.UP_STYLE),  
-            ], style=utils.SEC_STYLE),
-
             html.Div(sections.hyperparameters, style=utils.SEC_STYLE),
-            # html.Div(style=dict(height="7px")),
+            html.Div(style=dict(height="7px")),
             html.Div(sections.colors, style=utils.SEC_STYLE),
+            html.Div(style=dict(height="7px")),
+            html.Div(sections.upload, style=dict(margin=5)),
+
         ], className="six columns"),
     
         # Image display
         html.Div([
-            html.Div(dcc.Graph(id="image", style=dict(height="70%", marginTop="8px"))),
-            html.Div([
-                # html.Div(html.P("-"), className="one columns", style=dict(color=utils.COLORS["bg"])),
-
-                html.Div([
-                    dcc.Upload(html.Button("UPLOAD IMAGE", type="submit", style=utils.BUTTON_STYLE), id="upload_image"),
-                ], className="four columns"),
-
-                html.Div(html.P("-"), className="four columns", style=dict(color=utils.COLORS["bg"])),
-                
-                html.Div([
-                    html.Button("DOWNLOAD IMAGE", type="submit", style=utils.BUTTON_STYLE),
-                ], className="four columns"),
-
-                # html.Div(html.P("-"), className="one columns", style=dict(color=utils.COLORS["bg"])),
-
-            ], className="row"),
+            dcc.Graph(figure=graphs.fig, id="image", style=dict(height="100vh", width="100%", marginTop="5px"))
         ], className="six columns", style=dict(float="right"),),
 
         # Empty div

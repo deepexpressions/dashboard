@@ -21,7 +21,7 @@ hyperparameters = [
         html.Div([
             html.Div([
                 dcc.Markdown("FD confidence:"),
-            ], className="three columns", style=dict(color="#000000", hoverinfo='text')),
+            ], className="three columns", style=dict(color="#000000")),
 
             html.Div([               
                 dcc.Slider(
@@ -164,6 +164,35 @@ colors = [
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
         ], className="row", style=dict(marginTop="10px")),
     ]),#, style=dict(marginTop="-10px")) 
+]
+
+
+upload = [
+    html.Div([
+
+        html.Div([
+            dcc.Input(id="input_url", type="text", placeholder="Image URL", style=utils.INPUT_STYLE),
+        ], className="four columns"),
+
+        html.Div([
+            html.Div([
+
+                html.Div([
+                    dcc.Upload(html.Button("SUBMIT", type="submit", style=utils.BUTTON_STYLE), id="submit_url"),
+                ], className="four columns"),
+
+                html.Div([
+                    dcc.Upload(html.Button("BROWSE", type="submit", style=utils.BUTTON_STYLE), id="upload_image"),
+                ], className="four columns"),
+
+                html.Div([
+                    html.Button("DOWNLOAD", id="download_image", type="submit", style=utils.DOWNLOAD_BUTTON_STYLE),
+                ], className="four columns"),
+
+            ], className="row", style=dict(marginLeft="10px")),
+        ], className="eight columns"),
+
+    ], className="row", style=dict(marginLeft="2.5%"))
 ]
 
 
