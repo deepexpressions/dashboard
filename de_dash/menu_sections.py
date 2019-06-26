@@ -1,10 +1,10 @@
 import dash_core_components as dcc
 import dash_html_components as html
+from PIL.ImageColor import colormap
 from dash.dependencies import Output, Input
 
-from .. import utils
-from ..app import app
-from PIL.ImageColor import colormap
+from . import utils
+from .app import app
 
 
 hyperparameters = [
@@ -34,8 +34,8 @@ hyperparameters = [
                 ),
             ], className="nine columns"),
 
-        ], className="row", style=dict(marginTop="10px", marginBottom="10px")),
-    ]),#, style=dict(marginTop="-10px")) 
+        ], className="row", style=dict(marginTop="1.5%", marginBottom="1%")),
+    ]),
 ]
 
 
@@ -110,7 +110,7 @@ colors = [
                     style=utils.COLOR_DROP_STYLE
                 ),
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
-        ], className="row", style=dict(marginTop="10px")),
+        ], className="row", style=dict(marginTop="1%")),
 
         html.Div([               
             html.Div([
@@ -144,7 +144,7 @@ colors = [
                     style=utils.COLOR_DROP_STYLE
                 ),
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
-        ], className="row", style=dict(marginTop="10px")),
+        ], className="row", style=dict(marginTop="1%")),
 
         html.Div([
             html.Div([
@@ -162,8 +162,8 @@ colors = [
                     style=utils.COLOR_DROP_STYLE
                 ),
             ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
-        ], className="row", style=dict(marginTop="10px")),
-    ]),#, style=dict(marginTop="-10px")) 
+        ], className="row", style=dict(marginTop="1%")),
+    ]),
 ]
 
 
@@ -178,7 +178,7 @@ upload = [
             html.Div([
 
                 html.Div([
-                    dcc.Upload(html.Button("SUBMIT", type="submit", style=utils.BUTTON_STYLE), id="submit_url"),
+                    html.Button("SUBMIT", id="submit_url", type="submit", n_clicks=0, style=utils.BUTTON_STYLE),
                 ], className="four columns"),
 
                 html.Div([
@@ -186,7 +186,8 @@ upload = [
                 ], className="four columns"),
 
                 html.Div([
-                    html.Button("DOWNLOAD", id="download_image", type="submit", style=utils.DOWNLOAD_BUTTON_STYLE),
+                    html.Button("DOWNLOAD", id="download_image", type="submit", n_clicks=0, 
+                        style=utils.DOWNLOAD_BUTTON_STYLE),
                 ], className="four columns"),
 
             ], className="row", style=dict(marginLeft="10px")),
