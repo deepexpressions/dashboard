@@ -1,5 +1,6 @@
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_bootstrap_components as dbc
 from PIL.ImageColor import colormap
 from dash.dependencies import Output, Input
 
@@ -20,7 +21,12 @@ hyperparameters = [
 
         html.Div([
             html.Div([
-                dcc.Markdown("FD confidence:"),
+                dcc.Markdown("FD confidence:", id="aiamfsd"),
+                dbc.Tooltip(
+                    "Confidence threshold from the Face Detector",
+                    target="aiamfsd", placement="bottom-end",  
+                    style=dict(borderRadius=5, marginLeft="15px", padding=3, color="#ffffff", backgroundColor="#66a3ff")
+                ),
             ], className="three columns", style=dict(color="#000000")),
 
             html.Div([               
@@ -186,8 +192,9 @@ upload = [
                 ], className="four columns"),
 
                 html.Div([
-                    html.Button("DOWNLOAD", id="download_image", type="submit", n_clicks=0, 
-                        style=utils.DOWNLOAD_BUTTON_STYLE),
+                    html.A(
+                        html.Button("DOWNLOAD", style=utils.DOWNLOAD_BUTTON_STYLE), 
+                        id="download_image", download="image.png", href="", target="_blank"),
                 ], className="four columns"),
 
             ], className="row", style=dict(marginLeft="10px")),

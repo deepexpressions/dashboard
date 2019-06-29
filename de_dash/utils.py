@@ -1,8 +1,5 @@
 import json
 import base64
-from PIL import Image
-
-from . import dash_reusable_components as drc
 
 
 ########################################### LOCAL IMAGES ###########################################
@@ -37,7 +34,7 @@ BG_STYLE = dict(width="100%", height="100vh", top="70px", left="0px", position="
 
 # Default style for sections
 SEC_STYLE = dict(padding=20, margin=5, borderRadius=5, border="thin lightgrey solid",
-    marginBottom="2%", backgroundColor=COLORS["bg"], **SHADOW_BOX)
+    marginBottom="2%", backgroundColor="#00000000", **SHADOW_BOX)
 
 # Default style for buttons
 INPUT_STYLE = dict(width="100%", fontSize=10, **SHADOW_BOX)           
@@ -59,7 +56,3 @@ COLOR_DROP_STYLE = dict(width="100%", fontSize=12, borderRadius=0)
 
 # Default style for color dropdown div
 COLOR_DROP_STYLE_DIV = dict(marginLeft="-10px", fontSize=12, borderRadius=0)
-
-
-######################################### DASH IMAGE UTILS #########################################
-

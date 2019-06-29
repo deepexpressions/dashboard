@@ -51,12 +51,25 @@ def _generate_figure(im):
 
 
 def submit_image_from_url(image_url):
-    """Show image given an url."""
-
-    response = requests.get(image_url)
-    im = Image.open(BytesIO(response.content))
-    return _generate_figure(im)
+    try:
+        response = requests.get(image_url)
+        im = Image.open(BytesIO(response.content))
+        return im, _generate_figure(im)
+    
+    except IOError:
+        return None, None
     
 
+def submit_local_image(content):
+    try:
+        string = content.split(';base64,')[-1]
+        im = drc.b64_to_pil(string)
+        return im, _generate_figure(im)
+    
+    except IOError:
+        return None, None
+
+
 # Default figure to show
+DEFAULT_IMAGE = drc.pil_to_b64(Image.open("de_dash/assets/images/default.jpg"))
 DEFAULT_FIGURE = _generate_figure(Image.open("de_dash/assets/images/default.jpg"))
