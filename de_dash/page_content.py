@@ -31,14 +31,17 @@ layout = [
     
         # Image display
         html.Div([
-            dcc.Graph(figure=graphs.DEFAULT_FIGURE, id="image", style=dict(width="100%", marginTop="5px")),
+            dcc.Loading([
+                dcc.Graph(figure=graphs.DEFAULT_FIGURE, id="image", 
+                          style=dict(width="100%", marginTop="5px")),
+            ], type="graph", style=dict(marginTop="15vh")),
+
             html.Div(graphs.DEFAULT_IMAGE, id="raw_image", style=dict(display="none")),
         ], id="image_div", className="six columns", style=dict(height="100vh", float="right")),
 
         # Confirm Dialogs
         html.Div([
             dcc.ConfirmDialog(id="im_failed", message="Failed to load the image."),
-            dcc.Interval(id="reset", interval=1*1000, n_intervals=0),
         ]),
 
     ], style=dict(margin="10px")),
