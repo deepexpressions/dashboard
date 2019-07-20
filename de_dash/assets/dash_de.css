@@ -1,9 +1,9 @@
 body{
     margin:0;
     padding: 0;
-    background-color: #e6e6e6;
+    background-color: #E1E7E4;
     font-family: 'Open Sans', sans-serif;
-    color: #506784;
+    color: #ffffff;
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
@@ -27,7 +27,7 @@ body{
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     width: 50%; /* Could be more or less, depending on screen size */
-    color:#506784;
+    color:#ffffff;
 }
 ._dash-undo-redo {
   display: none;
@@ -42,11 +42,12 @@ body{
 
 .header{
     margin:0px;
-    background-color:#6600cc;
+    background-color:#66a3ff;
     height:70px;
     color:white;
     padding-right:2%;
-    padding-left:2%
+    padding-left:2%;
+    box-shadow:0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3)
 }
 
 .indicator{
@@ -71,8 +72,8 @@ body{
 
 .add{
     height: 34px;
-    background: #119DFF;
-    border: 1px solid #119DFF;
+    background: #7B16E1;
+    border: 1px solid #7B16E1;
     color: white;
 }
 
@@ -92,8 +93,6 @@ body{
 }
 
 
-
-
 td{
     text-align: left;
     padding: 0px;
@@ -111,3 +110,25 @@ table{
     font-size:13px;
     margin-top:1px
 }
+
+.rc-slider-track {
+    background-color: #66a3ff;
+  }
+  
+  .rc-slider-dot-active {  
+    border-color: #66a3ff;
+    border: solid 2px #66a3ff;
+  }
+  
+  .rc-slider-handle {
+    background-color: #66a3ff;
+    border-color: #66a3ff;
+  }
+  
+  .rc.slider-handle:hover {
+    border-color: #66a3ff;
+  }
+  
+  .rc.slider-handle-active:active {
+    border-color: #66a3ff;
+  }

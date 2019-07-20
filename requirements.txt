@@ -1,2 +1,9 @@
-Pillow
-# DeepExpressions
+dash
+dash_bootstrap_components
+dash_core_components
+dash_html_components
+deep-expressions==0.0.3
+pandas
+plotly
+requests
+tensorflow==2.0.0b
