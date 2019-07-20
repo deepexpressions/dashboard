@@ -2,22 +2,37 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from PIL.ImageColor import colormap
-from dash.dependencies import Output, Input
+from dash.exceptions import PreventUpdate
+from dash.dependencies import Output, Input, State
 
-from . import utils
 from .app import app
+from . import default_styles as stl
 
 
 hyperparameters = [
     html.Div(dcc.Markdown("**__HYPERPARAMETERS:__**"), style=dict(color="#000000")),
     
     html.Div([
-        dcc.Dropdown(
-            id="model_dropdown", 
-            placeholder="FER Model",
-            clearable=False,
-            options=[dict(label="vggface_ce", value="vggface_ce"),]
-        ),
+        dcc.Loading([
+            dcc.Dropdown(
+                id="model_dropdown", 
+                placeholder="FER Model",
+                value="vggface_ce",
+                clearable=False,
+                options=[
+                    dict(label="VGGFACE CE (1-NN)", value="vggface_ce"),
+                    dict(label="VGGFACE CE (3-NN)", value="vggface_ce_l3"),
+                    dict(label="VGGFACE CK+ (1-NN)", value="vggface_ck"),
+                    dict(label="VGGFACE CK+ (3-NN)", value="vggface_ck_l3"),
+                    dict(label="VGGFACE KDEF (1-NN)", value="vggface_kdef"),
+                    dict(label="VGGFACE KDEF (3-NN)", value="vggface_kdef_l3"),
+                ]
+            ),
+
+            dcc.Store(id="store_collection", data=dict(model_name="vggface_ce")),
+        ]),
+
+        
 
         html.Div([
             html.Div([
@@ -62,10 +77,10 @@ colors = [
                     clearable=False,
                     value="red",
                     options = [dict(label=c, value=c) for c in colormap],
-                    style=utils.COLOR_DROP_STYLE
+                    style=stl.color_drop
                 ),
 
-            ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
+            ], className="four columns", style=stl.color_drop_div),
 
             html.Div([
                 dcc.Markdown("* Disgust:"),
@@ -79,9 +94,9 @@ colors = [
                     clearable=False,
                     value="goldenrod",
                     options = [dict(label=c, value=c) for c in colormap],
-                    style=utils.COLOR_DROP_STYLE
+                    style=stl.color_drop
                 ),
-            ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
+            ], className="four columns", style=stl.color_drop_div),
         ], className="row"),
 
         html.Div([
@@ -97,9 +112,9 @@ colors = [
                     clearable=False,
                     value="mediumpurple",
                     options = [dict(label=c, value=c) for c in colormap],
-                    style=utils.COLOR_DROP_STYLE
+                    style=stl.color_drop
                 ),
-            ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
+            ], className="four columns", style=stl.color_drop_div),
 
             html.Div([
                 dcc.Markdown("* Happiness:"),
@@ -113,9 +128,9 @@ colors = [
                     clearable=False,
                     value="yellow",
                     options = [dict(label=c, value=c) for c in colormap],
-                    style=utils.COLOR_DROP_STYLE
+                    style=stl.color_drop
                 ),
-            ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
+            ], className="four columns", style=stl.color_drop_div),
         ], className="row", style=dict(marginTop="1%")),
 
         html.Div([               
@@ -131,9 +146,9 @@ colors = [
                     clearable=False,
                     value="darkgrey",
                     options = [dict(label=c, value=c) for c in colormap],
-                    style=utils.COLOR_DROP_STYLE
+                    style=stl.color_drop
                 ),
-            ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
+            ], className="four columns", style=stl.color_drop_div),
 
             html.Div([               
                 dcc.Markdown("* Sadness:"),
@@ -147,9 +162,9 @@ colors = [
                     clearable=False,
                     value="royalblue",
                     options = [dict(label=c, value=c) for c in colormap],
-                    style=utils.COLOR_DROP_STYLE
+                    style=stl.color_drop
                 ),
-            ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
+            ], className="four columns", style=stl.color_drop_div),
         ], className="row", style=dict(marginTop="1%")),
 
         html.Div([
@@ -165,9 +180,9 @@ colors = [
                     clearable=False,
                     value="limegreen",
                     options = [dict(label=c, value=c) for c in colormap],
-                    style=utils.COLOR_DROP_STYLE
+                    style=stl.color_drop
                 ),
-            ], className="four columns", style=utils.COLOR_DROP_STYLE_DIV),
+            ], className="four columns", style=stl.color_drop_div),
         ], className="row", style=dict(marginTop="1%")),
     ]),
 ]
@@ -177,23 +192,23 @@ upload = [
     html.Div([
 
         html.Div([
-            dcc.Input(id="input_url", type="text", placeholder="Image URL", style=utils.INPUT_STYLE),
+            dcc.Input(id="input_url", type="text", placeholder="Image URL", style=stl.inputs),
         ], className="four columns"),
 
         html.Div([
             html.Div([
 
                 html.Div([
-                    html.Button("SUBMIT", id="submit_url", type="submit", n_clicks=0, style=utils.BUTTON_STYLE),
+                    html.Button("SUBMIT", id="submit_url", type="submit", n_clicks=0, style=stl.button),
                 ], className="four columns"),
 
                 html.Div([
-                    dcc.Upload(html.Button("BROWSE", type="submit", style=utils.BUTTON_STYLE), id="upload_image"),
+                    dcc.Upload(html.Button("BROWSE", type="submit", style=stl.button), id="upload_image"),
                 ], className="four columns"),
 
                 html.Div([
                     html.A(
-                        html.Button("DOWNLOAD", style=utils.DOWNLOAD_BUTTON_STYLE), 
+                        html.Button("DOWNLOAD", style=stl.download_button), 
                         id="download_image", download="image.png", href="", target="_blank"),
                 ], className="four columns"),
 
