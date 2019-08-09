@@ -1,9 +1,10 @@
-dash
-dash_bootstrap_components
-dash_core_components
-dash_html_components
-deep-expressions==0.0.3
-pandas
-plotly
-requests
+# absl-py
+dash==1.0.0
+dash_bootstrap_components==0.6.2
+dash_core_components==1.0.0
+dash_html_components==1.0.0
+deep-expressions==0.0.4
+pandas>=0.23.0
+plotly>=3.10.0
+requests==2.21.0
 tensorflow==2.0.0b

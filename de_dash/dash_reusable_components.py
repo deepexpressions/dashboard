@@ -78,6 +78,10 @@ def b64_to_numpy(string, to_scalar=True):
     if to_scalar:
         np_array = np_array / 255.
 
+    # Filter RGBA images
+    if np_array.shape[-1] == 4:
+        np_array = np_array[:,:,:-1]
+
     return np_array
 
 
