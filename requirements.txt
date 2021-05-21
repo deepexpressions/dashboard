@@ -6,4 +6,4 @@ deep-expressions==0.0.3
 pandas
 plotly
 requests
-tensorflow==2.0.0b
+tensorflow==2.5.0rc0
